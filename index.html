@@ -162,10 +162,13 @@
                 resultsContainer.classList.add('hidden');
 
                 const urlPath = subjects[currentSubject][currentType];
-                const fullUrl = BASE_URL + urlPath;
+                const targetUrl = BASE_URL + urlPath;
+                // Using a CORS proxy to bypass fetch restrictions in certain environments.
+                const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
+
 
                 try {
-                    const response = await fetch(fullUrl);
+                    const response = await fetch(proxyUrl);
                     if (!response.ok) {
                         throw new Error(`Network response was not ok (status: ${response.status})`);
                     }
@@ -241,3 +244,4 @@
     </script>
 </body>
 </html>
+
