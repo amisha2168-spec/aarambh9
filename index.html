@@ -15,10 +15,6 @@
   if (!allowedDomains.includes(currentDomain)) {
       // Option 1: Redirect to a safe page
       window.location.href = "https://example.com/unauthorized.html";
-
-      // Option 2: Stop rendering
-      document.write(""); // Clear page
-      throw new Error("This page is not allowed on this domain");
   }
 </script>
     <script src="https://cdn.tailwindcss.com"></script>
